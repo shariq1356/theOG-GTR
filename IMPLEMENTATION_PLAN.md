@@ -7,10 +7,10 @@ Next.js 15 (App Router, TypeScript, `src/` dir), Tailwind CSS v4, GSAP + ScrollT
 ## Section-by-section narrative
 
 1. **Loader** — minimal full-screen overlay (wordmark + progress line), removed on `window.load`, respects reduced motion (instant hide).
-2. **Hero (Scene 1)** — `<video>` (`gtr-hero-reveal.mp4`) as a pinned, scroll-scrubbed backdrop; poster is the near-black silhouette frame. Copy makes clear this is an independent technical experience, not an official Nissan property.
+2. **Hero (Scene 1)** — `<video>` (`gtr-scene-01.mp4`) as a pinned, scroll-linked scale/brightness backdrop; poster is a low-legibility wide establishing frame. Copy makes clear this is an independent technical experience, not an official Nissan property.
 3. **Legend** — short manifesto-style statement + three key stat chips (600 hp / 481 lb-ft / 54:46 balance).
-4. **Aero (Scene 2)** — pinned `<video>` (`gtr-exterior-detail.mp4`) scrubbed via `currentTime`, captioned "Aerodynamic Form" (deliberately generic per the visual-adaptation rules), with real NISMO aero facts (Cd 0.26, carbon panels, swan-neck wing, diffuser) placed in a separate text panel, never pointing labels at the visible aftermarket parts.
-5. **VR38DETT** — accurate engine facts (600 hp @ 6,800 rpm, 481 lb-ft, DOHC 24v, 9.0:1, etc.) in an SVG/CSS technical diagram; `gtr-workshop-detail.mp4` plays as a small muted side strip captioned "Workshop atmosphere only."
+4. **Aero (Scene 2)** — pinned `<video>` (`gtr-scene-02.mp4`) scrubbed via `currentTime`, captioned "Aerodynamic Form" (deliberately generic per the visual-adaptation rules), with real NISMO aero facts (Cd 0.26, carbon panels, swan-neck wing, diffuser) placed in a separate text panel, never pointing labels at the visible aftermarket parts.
+5. **VR38DETT** — accurate engine facts (600 hp @ 6,800 rpm, 481 lb-ft, DOHC 24v, 9.0:1, etc.) in an SVG/CSS technical diagram; `gtr-scene-03.mp4` plays as a small muted side strip captioned "Ambient detail only."
 6. **Transmission / ATTESA E-TS** — CSS/SVG drivetrain map (front-mid engine → carbon driveshaft → rear transaxle → front/rear LSD) + six-speed ratio grid.
 7. **Chassis & suspension** — Premium-Midship platform facts, interactive R/Normal/Comfort DampTronic mode selector (client component, no video).
 8. **Carbon-ceramic brakes** — Brembo front/rear rotor and caliper specs, CSS rotor illustration.
@@ -18,7 +18,7 @@ Next.js 15 (App Router, TypeScript, `src/` dir), Tailwind CSS v4, GSAP + ScrollT
 10. **Cockpit** — Recaro/Alcantara/tech features + performance-display metric grid.
 11. **Dimensions** — length/width/height/wheelbase in a simple SVG silhouette + figure list.
 12. **Specifications** — filterable, accessible data table (client component, category buttons).
-13. **Final hero** — closing statement + CTA back to top.
+13. **Final hero** — `<video>` (`gtr-scene-04.mp4`) as a dimmed, non-scrubbed background echo, plus closing statement + CTA back to top. Added in the animation-update pass — see `ANIMATION_UPDATE_PLAN.md`.
 
 ## Architecture details
 

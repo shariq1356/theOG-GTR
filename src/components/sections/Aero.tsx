@@ -66,9 +66,9 @@ export default function Aero() {
       >
         <VideoStage
           ref={videoRef}
-          src="/videos/gtr-exterior-detail.mp4"
+          src="/videos/gtr-scene-02.mp4"
           poster="/posters/exterior.jpg"
-          description="Abstract macro footage of a modified GT-R's studio reflections, splitter, wheel and exhaust detail, used only as an aerodynamic-form reference. It does not depict factory NISMO components."
+          description="Abstract macro footage of a modified GT-R's hood vents, headlight, wheel and brake detail, used only as an aerodynamic-form reference. It does not depict factory NISMO components."
           className="absolute inset-0"
           videoClassName="h-full w-full object-cover"
         />

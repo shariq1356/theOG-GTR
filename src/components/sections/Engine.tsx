@@ -88,14 +88,15 @@ export default function Engine() {
         className="reveal mx-auto mt-20 grid max-w-6xl grid-cols-1 overflow-hidden border border-white/10 bg-[#08090b] sm:grid-cols-[1.1fr_0.9fr]"
       >
         <VideoStage
-          src="/videos/gtr-workshop-detail.mp4"
-          poster="/posters/workshop.jpg"
-          description="Workshop-floor footage of a modified GT-R's wheel, fender and rear-quarter, used only for pace and atmosphere. It is not footage of an engine bay and carries no VR38DETT specification information."
+          src="/videos/gtr-scene-03.mp4"
+          poster="/posters/engine.jpg"
+          description="Cinematic detail footage of a modified GT-R's duct mesh and wheel, used only for pace and atmosphere. It is not footage of an engine bay and carries no VR38DETT specification information."
+          startAt={1.2}
           className="relative min-h-[14rem]"
           videoClassName="h-full w-full object-cover brightness-[0.55] saturate-[0.5]"
         />
         <div className="flex flex-col justify-center gap-2 p-8">
-          <p className="eyebrow">WORKSHOP STUDY</p>
+          <p className="eyebrow">AMBIENT DETAIL</p>
           <strong className="font-display text-xl font-semibold text-ink">
             Footage used for pace and atmosphere only.
           </strong>

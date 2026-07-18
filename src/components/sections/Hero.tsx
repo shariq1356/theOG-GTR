@@ -34,9 +34,9 @@ export default function Hero() {
             opacity: 1 - progress * 0.9,
           });
           gsap.set(video, {
-            scale: 1 + progress * 0.08,
-            filter: `brightness(${0.72 - progress * 0.22}) saturate(${
-              0.75 + progress * 0.2
+            scale: 1 + progress * 0.06,
+            filter: `brightness(${0.92 - progress * 0.38}) saturate(${
+              1 - progress * 0.3
             })`,
           });
         },
@@ -50,7 +50,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className={`relative bg-[#020203] ${reducedMotion ? "h-auto" : "h-[220vh]"}`}
+      className={`relative bg-[#020203] ${reducedMotion ? "h-auto" : "h-[230vh]"}`}
     >
       <div
         id="top"
@@ -60,13 +60,14 @@ export default function Hero() {
       >
         <VideoStage
           ref={videoRef}
-          src="/videos/gtr-hero-reveal.mp4"
+          src="/videos/gtr-scene-01.mp4"
           poster="/posters/hero.jpg"
-          description="Cinematic studio footage of a modified midnight-purple GT-R, used only as a lighting and camera-movement reference. It does not depict the factory 2024 GT-R R35 NISMO."
+          description="Cinematic on-location footage of a modified neon-green GT-R with a Liberty Walk widebody kit, used only as a lighting and camera-movement reference. It does not depict the factory 2024 GT-R R35 NISMO."
           eager
           className="absolute inset-0"
           videoClassName="h-full w-full object-cover"
         />
+        <div className="edge-vignette" aria-hidden="true" />
         <div className="grid-overlay" aria-hidden="true" />
         <div className="film-grain" aria-hidden="true" />
 

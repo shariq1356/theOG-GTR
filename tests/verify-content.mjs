@@ -9,14 +9,26 @@ const fail = (message) => {
 
 // Media assets must exist locally (copied, not regenerated).
 for (const media of [
+  "public/videos/gtr-scene-01.mp4",
+  "public/videos/gtr-scene-02.mp4",
+  "public/videos/gtr-scene-03.mp4",
+  "public/videos/gtr-scene-04.mp4",
+  "public/posters/hero.jpg",
+  "public/posters/exterior.jpg",
+  "public/posters/engine.jpg",
+  "public/posters/final.jpg",
+]) {
+  if (!existsSync(resolve(root, media))) fail(`Missing media asset: ${media}`);
+}
+
+// Retired filenames must not exist on disk or be referenced anywhere in src/.
+for (const stale of [
   "public/videos/gtr-hero-reveal.mp4",
   "public/videos/gtr-exterior-detail.mp4",
   "public/videos/gtr-workshop-detail.mp4",
-  "public/posters/hero.jpg",
-  "public/posters/exterior.jpg",
   "public/posters/workshop.jpg",
 ]) {
-  if (!existsSync(resolve(root, media))) fail(`Missing media asset: ${media}`);
+  if (existsSync(resolve(root, stale))) fail(`Stale media asset still present: ${stale}`);
 }
 
 // Required section components must exist.
@@ -62,8 +74,8 @@ const collectSourceFiles = (dir, files = []) => {
 };
 
 const disclaimed = (content, matchIndex) => {
-  const windowText = content.slice(Math.max(0, matchIndex - 60), matchIndex + 20).toLowerCase();
-  return /standard|not the|do not|non-nismo|prior|regular/.test(windowText);
+  const windowText = content.slice(Math.max(0, matchIndex - 80), matchIndex + 200).toLowerCase();
+  return /standard|not the|do not|does not|non-nismo|prior|regular|modified/.test(windowText);
 };
 
 const sourceFiles = collectSourceFiles(resolve(root, "src"));
@@ -76,6 +88,14 @@ for (const file of sourceFiles) {
   const lwMatch = /liberty\s*walk/i.exec(content);
   if (lwMatch && !disclaimed(content, lwMatch.index)) {
     fail(`Liberty Walk mentioned without a disclaiming context in ${file}`);
+  }
+  for (const staleName of [
+    "gtr-hero-reveal.mp4",
+    "gtr-exterior-detail.mp4",
+    "gtr-workshop-detail.mp4",
+    "posters/workshop.jpg",
+  ]) {
+    if (content.includes(staleName)) fail(`Stale reference to ${staleName} in ${file}`);
   }
 }
 

@@ -19,6 +19,8 @@ type VideoStageProps = {
   videoClassName?: string;
   /** Hero loads immediately (metadata) instead of waiting for intersection. */
   eager?: boolean;
+  /** Seek here once loaded, to skip an unwanted opening beat (e.g. a title-card cut). */
+  startAt?: number;
 };
 
 /**
@@ -30,7 +32,7 @@ type VideoStageProps = {
  */
 const VideoStage = forwardRef<HTMLVideoElement, VideoStageProps>(
   function VideoStage(
-    { src, poster, description, className, videoClassName, eager = false },
+    { src, poster, description, className, videoClassName, eager = false, startAt },
     forwardedRef
   ) {
     const reducedMotion = useReducedMotion();
@@ -121,7 +123,9 @@ const VideoStage = forwardRef<HTMLVideoElement, VideoStageProps>(
           aria-describedby={descId}
           src={assigned ? src : undefined}
           onLoadedData={(event) => {
-            if (eager) event.currentTarget.play().catch(() => {});
+            const target = event.currentTarget;
+            if (startAt && target.currentTime < startAt) target.currentTime = startAt;
+            if (eager) target.play().catch(() => {});
           }}
         />
         <p id={descId} className="sr-only">

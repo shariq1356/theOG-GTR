@@ -13,6 +13,7 @@ import Cockpit from "@/components/sections/Cockpit";
 import Dimensions from "@/components/sections/Dimensions";
 import Specs from "@/components/sections/Specs";
 import FinalHero from "@/components/sections/FinalHero";
+import SceneTransition from "@/components/SceneTransition";
 
 export default function Home() {
   return (
@@ -21,8 +22,10 @@ export default function Home() {
       <SiteHeader />
       <main id="main">
         <Hero />
+        <SceneTransition anchorId="legend" />
         <Legend />
         <Aero />
+        <SceneTransition anchorId="engine" />
         <Engine />
         <Drivetrain />
         <Chassis />
@@ -31,6 +34,7 @@ export default function Home() {
         <Cockpit />
         <Dimensions />
         <Specs />
+        <SceneTransition anchorId="final" />
         <FinalHero />
       </main>
       <SiteFooter />

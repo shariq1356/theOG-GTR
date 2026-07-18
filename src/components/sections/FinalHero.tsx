@@ -1,15 +1,25 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
+import VideoStage from "@/components/VideoStage";
 
 export default function FinalHero() {
   const ref = useReveal<HTMLDivElement>();
 
   return (
     <section
+      id="final"
       aria-labelledby="final-title"
-      className="relative grid min-h-[70vh] place-items-center overflow-hidden bg-gradient-to-br from-[#08090b] to-[#181d22] px-6 py-24 text-center"
+      className="relative grid min-h-[75vh] place-items-center overflow-hidden bg-gradient-to-br from-[#08090b] to-[#181d22] px-6 py-24 text-center"
     >
+      <VideoStage
+        src="/videos/gtr-scene-04.mp4"
+        poster="/posters/final.jpg"
+        description="Closing cinematic footage of a modified GT-R's wheel and three-quarter profile, used only as an atmospheric closing reference. It does not depict the factory 2024 GT-R R35 NISMO."
+        className="absolute inset-0"
+        videoClassName="h-full w-full object-cover opacity-55"
+      />
+      <div className="edge-vignette" aria-hidden="true" />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -inset-1/5 animate-pulse"
