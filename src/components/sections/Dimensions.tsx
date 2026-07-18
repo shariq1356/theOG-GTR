@@ -4,10 +4,9 @@ import { useReveal } from "@/hooks/useReveal";
 import { dimensions } from "@/lib/specs";
 
 const rows = [
-  { label: "OVERALL LENGTH", ...dimensions.length },
-  { label: "OVERALL WIDTH", ...dimensions.width },
-  { label: "OVERALL HEIGHT", ...dimensions.height },
-  { label: "WHEELBASE", ...dimensions.wheelbase },
+  { label: "OVERALL LENGTH", ...dimensions.lengthStock },
+  { label: "OVERALL HEIGHT", ...dimensions.heightStock },
+  { label: "WHEELBASE", ...dimensions.wheelbaseStock },
 ];
 
 export default function Dimensions() {
@@ -25,13 +24,12 @@ export default function Dimensions() {
 
       <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div ref={copyRef} className="reveal">
-          <p className="eyebrow">DIMENSIONS / CAPACITY</p>
+          <p className="eyebrow">DIMENSIONS</p>
           <h2 id="dimensions-title" className="mt-3 text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.9] text-ink">
-            Proportioned<br />for <span className="text-nismo-red">purpose.</span>
+            Wider than<br />it was <span className="text-nismo-red">built.</span>
           </h2>
           <p className="mt-5 max-w-md font-body text-base leading-relaxed text-ink/80">
-            Compact at the roofline, wide at the contact patch, and built
-            around a {dimensions.wheelbase.imperial} wheelbase for {dimensions.passengers.toLowerCase()}.
+            {dimensions.widthNote}
           </p>
         </div>
 
@@ -39,7 +37,7 @@ export default function Dimensions() {
           <svg
             viewBox="0 0 320 120"
             role="img"
-            aria-label="Simplified side-profile diagram of the GT-R NISMO showing its length, width, height and wheelbase proportions."
+            aria-label="Simplified side-profile diagram showing the R35 platform's factory length, height and wheelbase proportions."
             className="mx-auto w-full max-w-md text-ink/70"
           >
             <path

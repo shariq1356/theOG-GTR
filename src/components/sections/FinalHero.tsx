@@ -15,7 +15,7 @@ export default function FinalHero() {
       <VideoStage
         src="/videos/gtr-scene-04.mp4"
         poster="/posters/final.jpg"
-        description="Closing cinematic footage of a modified GT-R's wheel and three-quarter profile, used only as an atmospheric closing reference. It does not depict the factory 2024 GT-R R35 NISMO."
+        description="Closing cinematic footage of the featured GT-R's wheel and three-quarter profile."
         className="absolute inset-0"
         videoClassName="h-full w-full object-cover opacity-55"
       />
@@ -29,13 +29,12 @@ export default function FinalHero() {
         }}
       />
       <div ref={ref} className="reveal relative z-10 max-w-2xl">
-        <p className="eyebrow">GT-R NISMO / 2024</p>
+        <p className="eyebrow">GT-R / LIBERTY WALK</p>
         <h2 id="final-title" className="mt-3 text-[clamp(2.6rem,7vw,6rem)] font-bold leading-[0.9] text-ink">
-          The legend<br /><span className="text-nismo-red">is technical.</span>
+          Built wide.<br /><span className="text-nismo-red">Built to be seen.</span>
         </h2>
         <p className="mx-auto mt-5 max-w-md font-body text-base leading-relaxed text-ink/75">
-          Not a museum piece — a system in perpetual conversation with the
-          road.
+          Not a factory statement — a personal one, riveted on.
         </p>
         <a
           href="#top"

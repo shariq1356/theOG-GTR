@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import VideoStage from "@/components/VideoStage";
-import { aeroFacts } from "@/lib/specs";
+import { buildFacts } from "@/lib/specs";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useReveal } from "@/hooks/useReveal";
 
@@ -68,7 +68,7 @@ export default function Aero() {
           ref={videoRef}
           src="/videos/gtr-scene-02.mp4"
           poster="/posters/exterior.jpg"
-          description="Abstract macro footage of a modified GT-R's hood vents, headlight, wheel and brake detail, used only as an aerodynamic-form reference. It does not depict factory NISMO components."
+          description="Macro footage of the featured GT-R's hood vents, headlight, wheel and brake detail."
           className="absolute inset-0"
           videoClassName="h-full w-full object-cover"
         />
@@ -78,20 +78,18 @@ export default function Aero() {
           ref={copyRef}
           className="relative z-10 flex h-full max-w-xl flex-col justify-center px-6 sm:px-12 lg:px-24"
         >
-          <p className="eyebrow">02 — AERODYNAMIC FORM</p>
+          <p className="eyebrow">02 — LB WIDEBODY</p>
           <h2 id="aero-title" className="mt-3 text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold leading-[0.9] text-ink">
-            Air, given<br /><span className="text-nismo-red">a purpose.</span>
+            Form, given<br /><span className="text-nismo-red">an attitude.</span>
           </h2>
           <p className="mt-5 max-w-md font-body text-base leading-relaxed text-ink/80">
-            The factory NISMO&rsquo;s carbon-fibre bumper, bonnet, roof,
-            side-sill covers and trunk lid are shaped around stability, not
-            decoration.
+            {buildFacts.bodyKit} reshapes the R35&rsquo;s factory panels
+            entirely — wider, lower, and built to be seen.
           </p>
           <div className="mt-8 flex items-end gap-3">
-            <span className="font-display text-5xl font-semibold text-nismo-red">
-              {aeroFacts.drag_coefficient.split(" ")[0]}
+            <span className="font-display text-3xl font-semibold text-nismo-red sm:text-4xl">
+              LB★PERFORMANCE
             </span>
-            <span className="mono-label pb-1">DRAG COEFFICIENT</span>
           </div>
         </div>
 
@@ -99,7 +97,7 @@ export default function Aero() {
           ref={factsRef}
           className="reveal absolute bottom-8 right-6 z-10 w-[min(24rem,42vw)] border-t border-white/15 sm:right-12"
         >
-          {aeroFacts.features.slice(0, 3).map((feature, index) => (
+          {buildFacts.bodyKitFeatures.slice(0, 3).map((feature, index) => (
             <p key={feature} className="border-b border-white/10 py-3 text-sm text-ink/85">
               <b className="mono-label mr-3 text-nismo-red!">
                 {String(index + 1).padStart(2, "0")}

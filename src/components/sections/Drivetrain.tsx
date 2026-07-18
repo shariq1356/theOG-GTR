@@ -1,7 +1,7 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
-import { drivetrainFacts, gearRatios } from "@/lib/specs";
+import { platformFacts, gearRatios } from "@/lib/specs";
 
 export default function Drivetrain() {
   const headRef = useReveal<HTMLDivElement>();
@@ -23,18 +23,17 @@ export default function Drivetrain() {
           Grip is a<br /><span className="text-nismo-red">conversation.</span>
         </h2>
         <p className="mt-5 font-body text-base leading-relaxed text-ink/80">
-          A {drivetrainFacts.driveshaft.toLowerCase()} connects the{" "}
-          {drivetrainFacts.layout.toLowerCase()} to a{" "}
-          {drivetrainFacts.transmission.toLowerCase()} in the{" "}
-          {drivetrainFacts.transmission_location.toLowerCase()}. ATTESA E-TS
-          directs torque to whichever axle the surface asks for.
+          A driveshaft connects the front-mid-mounted VR38DETT to a{" "}
+          {platformFacts.transmission.toLowerCase()}. ATTESA E-TS directs
+          torque to whichever axle the surface asks for — a platform-level
+          system, unchanged by this build&rsquo;s widebody kit.
         </p>
       </div>
 
       <div
         ref={mapRef}
         role="img"
-        aria-label="Drivetrain flow diagram: front-mid VR38DETT engine, through a carbon-composite driveshaft, to a six-speed dual-clutch rear transaxle, splitting to front and rear limited-slip differentials."
+        aria-label="Drivetrain flow diagram: front-mid VR38DETT engine, through a driveshaft, to a six-speed dual-clutch rear transaxle, splitting to front and rear limited-slip differentials."
         className="reveal mx-auto mt-16 grid max-w-4xl grid-cols-1 items-center gap-4 sm:grid-cols-[1fr_auto_1fr]"
       >
         <div className="flow-node">
@@ -45,7 +44,7 @@ export default function Drivetrain() {
           <span className="connector-line w-full sm:w-24" aria-hidden="true">
             <i />
           </span>
-          <span className="mono-label whitespace-nowrap">CARBON DRIVESHAFT</span>
+          <span className="mono-label whitespace-nowrap">DRIVESHAFT</span>
         </div>
         <div className="flow-node">
           REAR TRANSAXLE
@@ -55,7 +54,7 @@ export default function Drivetrain() {
         <div className="col-span-full mt-8 grid grid-cols-1 gap-4 text-center sm:grid-cols-[1fr_auto_1fr]">
           <p className="mono-label border-t border-white/15 pt-3">FRONT LSD</p>
           <span className="hidden h-px w-full self-center bg-white/15 sm:block" aria-hidden="true" />
-          <p className="mono-label border-t border-white/15 pt-3">REAR 1.5-WAY LSD</p>
+          <p className="mono-label border-t border-white/15 pt-3">REAR LSD</p>
         </div>
       </div>
 

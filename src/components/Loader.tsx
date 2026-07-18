@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Loader() {
@@ -29,10 +30,13 @@ export default function Loader() {
         hidden ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
-      <span className="font-display text-2xl font-semibold tracking-[0.3em] text-ink">
-        GT-R NISMO
+      <span className="grid h-16 w-16 place-items-center rounded-lg bg-white p-2">
+        <Image src="/brand/lb-works-logo.png" alt="LB Works" width={56} height={56} className="h-full w-full object-contain" />
       </span>
-      <span className="mono-label">TECHNICAL DOSSIER LOADING</span>
+      <span className="font-display text-2xl font-semibold tracking-[0.3em] text-ink">
+        GT-R LIBERTY WALK
+      </span>
+      <span className="mono-label">BUILD TOUR LOADING</span>
       <span className="mx-auto h-px w-40 origin-left animate-pulse bg-gradient-to-r from-nismo-red to-transparent" />
     </div>
   );

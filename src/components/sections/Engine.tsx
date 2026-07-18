@@ -2,7 +2,7 @@
 
 import { useReveal } from "@/hooks/useReveal";
 import VideoStage from "@/components/VideoStage";
-import { engineFacts } from "@/lib/specs";
+import { platformFacts, buildFacts } from "@/lib/specs";
 
 export default function Engine() {
   const copyRef = useReveal<HTMLDivElement>();
@@ -21,22 +21,22 @@ export default function Engine() {
 
       <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[0.95fr_1.1fr]">
         <div ref={copyRef} className="reveal">
-          <p className="eyebrow">HAND-ASSEMBLED / TAKUMI</p>
+          <p className="eyebrow">PLATFORM / VR38DETT</p>
           <h2 id="engine-title" className="mt-3 text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.9] text-ink">
-            Twin turbos.<br /><span className="text-nismo-red">One obsession.</span>
+            Twin turbos.<br /><span className="text-nismo-red">Undisclosed tune.</span>
           </h2>
           <p className="mt-5 max-w-md font-body text-base leading-relaxed text-ink/80">
-            The {engineFacts.designation} is a {engineFacts.type.toLowerCase()},{" "}
-            {engineFacts.displacement} twin-turbocharged engine. Its{" "}
-            {engineFacts.block.toLowerCase()} package race-derived turbo
-            technology inside a road car built for four, and every unit is{" "}
-            {engineFacts.assembly.toLowerCase()}.
+            Every R35-platform GT-R starts from the {platformFacts.engineType.toLowerCase()},{" "}
+            {platformFacts.displacement}. This build adds an{" "}
+            {buildFacts.intercooler.toLowerCase()} and an{" "}
+            {buildFacts.exhaust.toLowerCase()} — visible upgrades with no
+            published dyno figures, so none are claimed here.
           </p>
           <dl className="mt-8 flex flex-wrap gap-6">
             {[
-              { dt: engineFacts.redline.split(" ")[0], dd: "Maximum engine speed" },
-              { dt: engineFacts.compression, dd: "Compression ratio" },
-              { dt: "DOHC / 24", dd: "Valves" },
+              { dt: "DOHC / 24", dd: "Valves (platform)" },
+              { dt: "AWD", dd: platformFacts.drive },
+              { dt: "6-SPEED", dd: platformFacts.transmission },
             ].map((item) => (
               <div key={item.dd} className="border-t border-white/15 pt-3">
                 <dt className="font-display text-xl font-semibold text-ink">{item.dt}</dt>
@@ -78,7 +78,7 @@ export default function Engine() {
             </div>
           </div>
           <p className="mono-label max-w-md text-center">
-            {engineFacts.fuel_system} · {engineFacts.valve_timing}
+            Platform layout shown · this build&rsquo;s internal tune isn&rsquo;t published
           </p>
         </div>
       </div>

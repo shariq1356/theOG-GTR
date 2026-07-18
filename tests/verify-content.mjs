@@ -17,6 +17,7 @@ for (const media of [
   "public/posters/exterior.jpg",
   "public/posters/engine.jpg",
   "public/posters/final.jpg",
+  "public/brand/lb-works-logo.png",
 ]) {
   if (!existsSync(resolve(root, media))) fail(`Missing media asset: ${media}`);
 }
@@ -50,15 +51,16 @@ for (const section of [
     fail(`Missing section component: ${section}.tsx`);
 }
 
-// Required factual copy must be present somewhere in the spec data or section source,
-// and the incorrect 565 hp figure must never appear anywhere in src/.
+// Required facts for the current (Liberty Walk build) content model must be present.
 const specSource = readFileSync(resolve(root, "src/lib/specs.ts"), "utf8");
 for (const fact of [
   "VR38DETT",
-  "600 hp",
   "ATTESA E-TS",
-  "Brembo carbon-ceramic",
-  "3,867 lb",
+  "Liberty Walk",
+  "Rohana",
+  "Toyo",
+  "Armytrix",
+  "ALPHA",
 ]) {
   if (!specSource.includes(fact)) fail(`Missing required fact in specs.ts: ${fact}`);
 }
@@ -75,20 +77,27 @@ const collectSourceFiles = (dir, files = []) => {
 
 const disclaimed = (content, matchIndex) => {
   const windowText = content.slice(Math.max(0, matchIndex - 80), matchIndex + 200).toLowerCase();
-  return /standard|not the|do not|does not|non-nismo|prior|regular|modified/.test(windowText);
+  return /not published|undisclosed|no dyno|isn't shown|aren't published|not disclosed/.test(
+    windowText
+  );
 };
 
 const sourceFiles = collectSourceFiles(resolve(root, "src"));
 for (const file of sourceFiles) {
   const content = readFileSync(file, "utf8");
-  const hpMatch = /565\s*hp/i.exec(content);
+
+  // No specific horsepower/torque figure may be asserted for this build without
+  // hedging language nearby — no dyno sheet was supplied for this specific car.
+  const hpMatch = /\d+\s*(hp|bhp|lb-ft|nm)\b/i.exec(content);
   if (hpMatch && !disclaimed(content, hpMatch.index)) {
-    fail(`Undisclaimed 565 hp figure found in ${file}`);
+    fail(`Unhedged performance figure "${hpMatch[0]}" found in ${file} — no dyno data exists for this build`);
   }
-  const lwMatch = /liberty\s*walk/i.exec(content);
-  if (lwMatch && !disclaimed(content, lwMatch.index)) {
-    fail(`Liberty Walk mentioned without a disclaiming context in ${file}`);
+
+  // The old factory-NISMO branding must not resurface.
+  if (/gt-r\s*nismo/i.test(content)) {
+    fail(`Old "GT-R NISMO" branding resurfaced in ${file}`);
   }
+
   for (const staleName of [
     "gtr-hero-reveal.mp4",
     "gtr-exterior-detail.mp4",

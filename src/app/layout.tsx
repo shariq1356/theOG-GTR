@@ -22,9 +22,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GT-R NISMO | 2024 Technical Dossier",
+  title: "GT-R Liberty Walk | Widebody Build Showcase",
   description:
-    "An independent, cinematic technical exploration of the 2024 Nissan GT-R R35 NISMO — engine, drivetrain, chassis, braking and complete specifications.",
+    "An independent, cinematic showcase of a Nissan GT-R fitted with a Liberty Walk widebody kit — platform engineering, the LB widebody, and this build's own modifications.",
 };
 
 export default function RootLayout({

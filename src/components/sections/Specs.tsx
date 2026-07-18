@@ -6,10 +6,8 @@ import { specRows, type SpecCategory } from "@/lib/specs";
 
 const filters: { label: string; value: SpecCategory | "all" }[] = [
   { label: "All systems", value: "all" },
-  { label: "Powertrain", value: "powertrain" },
-  { label: "Chassis", value: "chassis" },
-  { label: "Body", value: "body" },
-  { label: "Cockpit", value: "cockpit" },
+  { label: "Platform", value: "platform" },
+  { label: "This build", value: "build" },
 ];
 
 export default function Specs() {
@@ -30,7 +28,7 @@ export default function Specs() {
       </p>
 
       <div ref={headRef} className="reveal mx-auto max-w-3xl">
-        <p className="eyebrow">2024 GT-R R35 NISMO</p>
+        <p className="eyebrow">GT-R · LIBERTY WALK BUILD</p>
         <h2 id="specs-title" className="mt-3 text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.9] text-ink">
           The numbers,<br /><span className="text-nismo-red">unfiltered.</span>
         </h2>
@@ -61,7 +59,7 @@ export default function Specs() {
       <div
         ref={tableRef}
         role="region"
-        aria-label="GT-R NISMO technical specifications"
+        aria-label="GT-R platform and build specifications"
         tabIndex={0}
         className="reveal mx-auto mt-6 max-w-4xl divide-y divide-white/10 border border-white/10"
       >

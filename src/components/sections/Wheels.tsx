@@ -1,7 +1,7 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
-import { wheelFacts } from "@/lib/specs";
+import { buildFacts } from "@/lib/specs";
 
 export default function Wheels() {
   const ref = useReveal<HTMLDivElement>();
@@ -18,29 +18,18 @@ export default function Wheels() {
         <div
           className="wheel-graphic"
           role="img"
-          aria-label="Illustration of a nine-spoke forged aluminium wheel with a red centre cap."
+          aria-label="Illustration of a multi-spoke forged wheel with a red centre cap."
         />
         <div ref={ref} className="reveal">
-          <p className="eyebrow">RAYS / DUNLOP</p>
+          <p className="eyebrow">ROHANA / TOYO</p>
           <h2 id="wheels-title" className="mt-3 text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.9] text-ink">
             Every input,<br /><span className="text-nismo-red">translated.</span>
           </h2>
           <p className="mt-5 max-w-md font-body text-base leading-relaxed text-ink/80">
-            {wheelFacts.wheels}, wrapped in {wheelFacts.tyres.toLowerCase()},
-            placed exactly where the asphalt can answer back.
+            {buildFacts.wheels}, wrapped in {buildFacts.tyres.toLowerCase()},
+            filling out the LB widebody&rsquo;s flared arches. Exact sizes
+            and offsets for this build aren&rsquo;t published.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-px bg-white/10">
-            <div className="bg-bg p-4">
-              <span className="mono-label">FRONT</span>
-              <b className="mt-1 block font-display text-2xl text-ink">{wheelFacts.front_wheel}</b>
-              <span className="mono-label">{wheelFacts.front_tyre}</span>
-            </div>
-            <div className="bg-bg p-4">
-              <span className="mono-label">REAR</span>
-              <b className="mt-1 block font-display text-2xl text-ink">{wheelFacts.rear_wheel}</b>
-              <span className="mono-label">{wheelFacts.rear_tyre}</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

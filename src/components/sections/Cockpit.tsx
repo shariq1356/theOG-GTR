@@ -1,7 +1,7 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
-import { cockpitFacts, performanceDisplayMetrics } from "@/lib/specs";
+import { cockpitNote, platformCockpitFeatures, performanceDisplayMetrics } from "@/lib/specs";
 
 export default function Cockpit() {
   const headRef = useReveal<HTMLDivElement>();
@@ -18,14 +18,14 @@ export default function Cockpit() {
       </p>
 
       <div ref={headRef} className="reveal mx-auto max-w-2xl">
-        <p className="eyebrow">DRIVER-FOCUSED / FOUR SEATS</p>
+        <p className="eyebrow">PLATFORM / FOUR SEATS</p>
         <h2 id="cockpit-title" className="mt-3 text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[0.9] text-ink">
-          All the data.<br /><span className="text-nismo-red">None of the noise.</span>
+          All the data.<br /><span className="text-nismo-red">None of it shown here.</span>
         </h2>
         <p className="mt-5 font-body text-base leading-relaxed text-ink/80">
-          {cockpitFacts.seats}. {cockpitFacts.wheel}, wrapped around a
-          performance display that turns every input into an intelligible
-          signal.
+          {cockpitNote} The R35 platform&rsquo;s cockpit generally centres
+          around a performance display that turns every input into an
+          intelligible signal.
         </p>
       </div>
 
@@ -50,18 +50,11 @@ export default function Cockpit() {
         ref={featureRef}
         className="reveal mx-auto mt-6 grid max-w-5xl grid-cols-1 gap-1 sm:grid-cols-3"
       >
-        <p className="bg-panel/70 p-5 text-sm text-ink/80">
-          <b className="block font-display text-xl text-nismo-red">8.0 IN</b>
-          NissanConnect multi-touch display
-        </p>
-        <p className="bg-panel/70 p-5 text-sm text-ink/80">
-          <b className="block font-display text-xl text-nismo-red">11</b>
-          Bose speakers + two rear subwoofers
-        </p>
-        <p className="bg-panel/70 p-5 text-sm text-ink/80">
-          <b className="block font-display text-xl text-nismo-red">DUAL-ZONE</b>
-          Automatic climate control
-        </p>
+        {platformCockpitFeatures.map((feature) => (
+          <p key={feature} className="bg-panel/70 p-5 text-sm text-ink/80">
+            {feature}
+          </p>
+        ))}
       </div>
     </section>
   );

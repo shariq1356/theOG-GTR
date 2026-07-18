@@ -8,7 +8,7 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * A thin NISMO-red line sweep + brief technical-grid flash marking a scene
+ * A thin red line sweep + brief technical-grid flash marking a scene
  * handoff, so consecutive video sections read as one connected journey
  * instead of isolated blocks. Fires once per pass as `anchorId` approaches
  * the viewport; a no-op under prefers-reduced-motion.

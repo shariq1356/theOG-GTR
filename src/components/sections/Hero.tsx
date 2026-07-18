@@ -62,7 +62,7 @@ export default function Hero() {
           ref={videoRef}
           src="/videos/gtr-scene-01.mp4"
           poster="/posters/hero.jpg"
-          description="Cinematic on-location footage of a modified neon-green GT-R with a Liberty Walk widebody kit, used only as a lighting and camera-movement reference. It does not depict the factory 2024 GT-R R35 NISMO."
+          description="Cinematic on-location footage of the featured neon-green GT-R fitted with a Liberty Walk widebody kit."
           eager
           className="absolute inset-0"
           videoClassName="h-full w-full object-cover"
@@ -75,20 +75,20 @@ export default function Hero() {
           ref={contentRef}
           className="relative z-10 flex flex-col gap-6 px-6 py-24 sm:px-12 lg:px-24"
         >
-          <p className="eyebrow">2024 / R35 / NISMO</p>
+          <p className="eyebrow">R35 PLATFORM / LB★PERFORMANCE</p>
           <h1 className="max-w-3xl text-[clamp(2.6rem,8vw,7.5rem)] font-bold leading-[0.86] text-ink">
-            ENGINEERED TO<br />
-            <span className="text-nismo-red">UNSETTLE PHYSICS.</span>
+            WIDE. LOUD.<br />
+            <span className="text-nismo-red">UNAPOLOGETIC.</span>
           </h1>
           <p className="max-w-md font-body text-base leading-relaxed text-ink/85">
-            An independent technical dossier for Nissan&rsquo;s 600 hp,
-            all-wheel-drive grand-touring weapon.
+            An independent showcase of a Nissan GT-R carrying a full Liberty
+            Walk widebody kit — built, not born this way.
           </p>
           <a
             href="#legend"
             className="mono-label inline-flex w-fit items-center gap-3 border border-white/25 px-4 py-3 text-ink! hover:border-nismo-red"
           >
-            Begin the dossier <span className="text-nismo-red">↓</span>
+            Begin the build tour <span className="text-nismo-red">↓</span>
           </a>
 
           <dl className="mt-8 grid max-w-xl grid-cols-3 gap-px overflow-hidden border border-white/10 bg-white/10">

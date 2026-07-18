@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -31,8 +32,13 @@ export default function SiteHeader() {
       }`}
       style={{ background: "linear-gradient(rgba(5,5,6,0.82), transparent)" }}
     >
-      <a href="#top" className="font-display text-sm font-semibold tracking-widest text-ink">
-        GT-R <span className="text-nismo-red">NISMO</span>
+      <a href="#top" className="flex items-center gap-2.5">
+        <span className="grid h-8 w-8 place-items-center rounded bg-white p-1">
+          <Image src="/brand/lb-works-logo.png" alt="" width={28} height={28} className="h-full w-full object-contain" />
+        </span>
+        <span className="font-display text-sm font-semibold tracking-widest text-ink">
+          GT-R <span className="text-nismo-red">LIBERTY WALK</span>
+        </span>
       </a>
       <nav aria-label="Primary" className="hidden gap-6 sm:flex">
         {links.map((link) => (
